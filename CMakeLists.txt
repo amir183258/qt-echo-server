@@ -13,6 +13,10 @@ qt_standard_project_setup()
 
 add_executable(qt-echo-server
 	${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/echo_server.cpp
+
+	# for MOC
+	${CMAKE_CURRENT_SOURCE_DIR}/include/echo_server.hpp
 )
 
 target_include_directories(qt-echo-server
