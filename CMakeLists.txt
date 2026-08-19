@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.16)
+project(qt-echo-server LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_PREFIX_PATH "$ENV{HOME}/Qt/6.10.1/gcc_64")
+
+find_package(Qt6 COMPONENTS Core REQUIRED)
+
+qt_standard_project_setup()
+
+add_executable(qt-echo-server
+	${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+)
+
+target_include_directories(qt-echo-server
+	PRIVATE
+	${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+target_link_libraries(qt-echo-server PRIVATE Qt6::Core)
+
+set_target_properties(qt-echo-server PROPERTIES
+	AUTOMOC ON
+	AUTOUIC ON
+	AUTORCC ON
+)
