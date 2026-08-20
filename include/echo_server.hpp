@@ -4,8 +4,7 @@
 #include <QTcpServer>
 
 class EchoServer final : public QObject {
-
-	Q_OBJECT
+Q_OBJECT
 public:
 	explicit EchoServer(QObject* parent = nullptr);
 
