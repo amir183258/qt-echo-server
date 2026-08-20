@@ -12,7 +12,7 @@ find_package(Qt6 COMPONENTS Core Network REQUIRED)
 qt_standard_project_setup()
 
 add_executable(qt-echo-server
-	${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/qt_echo_server.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/echo_server.cpp
 
 	# for MOC
