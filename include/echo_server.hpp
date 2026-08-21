@@ -6,7 +6,7 @@
 class EchoServer final : public QObject {
 Q_OBJECT
 public:
-	explicit EchoServer(QObject* parent = nullptr);
+	explicit EchoServer(QObject *parent = nullptr);
 
 public slots:
 	bool start(quint16 port);
