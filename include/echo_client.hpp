@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QString>
 #include <QTcpSocket>
+#include <QtTypes>
 
 class EchoClient final : public QObject {
 Q_OBJECT
@@ -12,8 +13,9 @@ public:
 	bool isConnected() const;
 
 public slots:
-	bool start(const QString ip_address);
+	bool start(const QString ip_address, quint16 port);
 	void stop();
+	qint64 sendMessage(const QByteArray &message);
 
 signals:
 	void connected();
