@@ -18,7 +18,7 @@ bool EchoServer::start(quint16 port) {
 	}
 
 	if (!m_server.listen(QHostAddress::Any, port)) {
-		qCritical() << "Failed to start server: " <<
+		qCritical() << "Failed to start server:" <<
 			m_server.errorString();
 
 		return false;
@@ -47,7 +47,7 @@ void EchoServer::onNewConnection() {
 		// echo data
 		connect(socket, &QTcpSocket::readyRead, this, [socket] {
 				const QByteArray data = socket->readAll();
-				qInfo() << "Received: " << data;
+				qInfo() << "Received:" << data;
 
 				socket->write(data);
 				socket->flush();
@@ -59,7 +59,7 @@ void EchoServer::onNewConnection() {
 		
 		// log client disconnection
 		connect(socket, &QTcpSocket::disconnected, this, [socket] {
-				qInfo() << "Client disconnected: " <<
+				qInfo() << "Client disconnected:" <<
 				socket->peerAddress().toString();
 				});
 
